@@ -1,0 +1,6 @@
+{
+	"autoload":
+	{
+		"classmap": ["BasicExcel\/AbstractReader.php", "BasicExcel\/AbstractWriter.php", "BasicExcel\/Exception.php", "BasicExcel\/Reader.php", "BasicExcel\/Reader\/Csv.php", "BasicExcel\/Reader\/Xls.php", "BasicExcel\/Reader\/Xlsx.php", "BasicExcel\/Writer\/Csv.php", "BasicExcel\/Writer\/Xls.php", "BasicExcel\/Writer\/Xlsx.php"]
+	}
+}

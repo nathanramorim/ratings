@@ -6,4 +6,16 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'BasicExcel\\AbstractReader' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/AbstractReader.php',
+    'BasicExcel\\AbstractWriter' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/AbstractWriter.php',
+    'BasicExcel\\Exception' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Exception.php',
+    'BasicExcel\\Ole' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Reader/Xls.php',
+    'BasicExcel\\Reader' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Reader.php',
+    'BasicExcel\\Reader\\Csv' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Reader/Csv.php',
+    'BasicExcel\\Reader\\XLSXWorksheet' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Reader/Xlsx.php',
+    'BasicExcel\\Reader\\Xlsx' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Reader/Xlsx.php',
+    'BasicExcel\\Writer\\Csv' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Writer/Csv.php',
+    'BasicExcel\\Writer\\Xls' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Writer/Xls.php',
+    'BasicExcel\\Writer\\Xlsx' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Writer/Xlsx.php',
+    'BasicExcel\\Xls' => $vendorDir . '/phpclasses/basic-excel/BasicExcel/Reader/Xls.php',
 );

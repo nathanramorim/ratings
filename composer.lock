@@ -1,0 +1,43 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "0d2105a93dc1b1976444c94bb9d964eb",
+    "packages": [
+        {
+            "name": "phpclasses/basic-excel",
+            "version": "1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://www.phpclasses.org/install/package/basic-excel.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "BasicExcel/AbstractReader.php",
+                    "BasicExcel/AbstractWriter.php",
+                    "BasicExcel/Exception.php",
+                    "BasicExcel/Reader.php",
+                    "BasicExcel/Reader/Csv.php",
+                    "BasicExcel/Reader/Xls.php",
+                    "BasicExcel/Reader/Xlsx.php",
+                    "BasicExcel/Writer/Csv.php",
+                    "BasicExcel/Writer/Xls.php",
+                    "BasicExcel/Writer/Xlsx.php"
+                ]
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
