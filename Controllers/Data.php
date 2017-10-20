@@ -1,6 +1,5 @@
 <?php 
 namespace controllers;
-\BasicExcel\Reader::registerAutoloader();
 
 class Data{
     function __construct(){
