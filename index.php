@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <?php include_once('vendor/autoload.php'); ?>
-<?php ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);?>
 <?php use controllers\Ratings; ?>
 <?php $ratings = new Ratings(); ?>
 <html lang="pt-br">
