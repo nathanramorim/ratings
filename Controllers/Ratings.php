@@ -5,7 +5,7 @@ use controllers\Data;
 class Ratings extends Data{
     function __construct(){}
 
-    public static function print_arrays($group){
+    public static function print_arrays(){
         $arr = self::get_data();
         $lenght = max($arr);
         
@@ -13,10 +13,20 @@ class Ratings extends Data{
             $user = (isset($arr['user'][$i]))? $arr['user'][$i]:NULL;
             $movies = (isset($arr['movies'][$i]))? $arr['movies'][$i]:NULL;
             $rating = (isset($arr['rating'][$i]))? $arr['rating'][$i]:NULL;
-            $validade[$arr['user'][$i]] = ($arr['user'][$i] == $arr['user'][$i+1] && !empty($rating)) ? 1:0;
+            $is_rating = (isset($arr['is_rating'][$i]))? $arr['is_rating'][$i]:NULL;
                 
-            echo "<tr scope='row'><td>{$user}</td><td>{$movies}</td><td>{$rating}</td><td>{$validade[$arr['user'][$i]]}</td></tr>";
+            echo "<tr scope='row'><td>{$user}</td><td>{$movies}</td><td>{$rating}</td><td>{$is_rating}</td></tr>";
         }
                
+    }
+
+    public function count_ratings(){
+        $arr = self::get_data();
+        $count = 0;
+        foreach($arr['is_rating'] as $is_rating){
+            
+            $count += ($is_rating == 1)? 1:0; 
+        }
+        return $count;
     }
 }
