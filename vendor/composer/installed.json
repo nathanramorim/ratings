@@ -1,29 +1,54 @@
 [
     {
-        "name": "phpclasses/basic-excel",
-        "version": "1.1",
-        "version_normalized": "1.1.0.0",
+        "name": "php-ai/php-ml",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-ai/php-ml.git",
+            "reference": "b48b82bd343301308c3d658b3fb6f95133d786a2"
+        },
         "dist": {
             "type": "zip",
-            "url": "https://www.phpclasses.org/install/package/basic-excel.zip",
-            "reference": null,
-            "shasum": null
+            "url": "https://api.github.com/repos/php-ai/php-ml/zipball/b48b82bd343301308c3d658b3fb6f95133d786a2",
+            "reference": "b48b82bd343301308c3d658b3fb6f95133d786a2",
+            "shasum": ""
         },
+        "require": {
+            "php": ">=7.0.0"
+        },
+        "require-dev": {
+            "friendsofphp/php-cs-fixer": "^2.4",
+            "phpunit/phpunit": "^6.0"
+        },
+        "time": "2017-10-18T08:59:37+00:00",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
-            "classmap": [
-                "BasicExcel/AbstractReader.php",
-                "BasicExcel/AbstractWriter.php",
-                "BasicExcel/Exception.php",
-                "BasicExcel/Reader.php",
-                "BasicExcel/Reader/Csv.php",
-                "BasicExcel/Reader/Xls.php",
-                "BasicExcel/Reader/Xlsx.php",
-                "BasicExcel/Writer/Csv.php",
-                "BasicExcel/Writer/Xls.php",
-                "BasicExcel/Writer/Xlsx.php"
-            ]
-        }
+            "psr-0": {
+                "Phpml": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Arkadiusz Kondas",
+                "email": "arkadiusz.kondas@gmail.com"
+            }
+        ],
+        "description": "PHP-ML - Machine Learning library for PHP",
+        "homepage": "https://github.com/php-ai/php-ml",
+        "keywords": [
+            "Neural network",
+            "artificial intelligence",
+            "computational learning theory",
+            "data science",
+            "feature extraction",
+            "machine learning",
+            "pattern recognition"
+        ]
     }
 ]

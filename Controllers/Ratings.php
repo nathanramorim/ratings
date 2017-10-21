@@ -29,4 +29,9 @@ class Ratings extends Data{
         }
         return $count;
     }
+
+    public function get_full_data(){
+        $arr = self::get_data();
+        return $arr;
+    }
 }

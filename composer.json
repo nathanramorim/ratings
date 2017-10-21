@@ -1,5 +1,8 @@
 {
-    "autoload": {
+    "require": {
+        "php-ai/php-ml": "dev-master"
+    },
+    "autoload":{
         "psr-4": {
             "controllers\\": "Controllers"
         }

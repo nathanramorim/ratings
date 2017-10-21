@@ -20,19 +20,14 @@ class ComposerStaticInit3c050239e886ed92f691060779abbd91
         ),
     );
 
-    public static $classMap = array (
-        'BasicExcel\\AbstractReader' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/AbstractReader.php',
-        'BasicExcel\\AbstractWriter' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/AbstractWriter.php',
-        'BasicExcel\\Exception' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Exception.php',
-        'BasicExcel\\Ole' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Reader/Xls.php',
-        'BasicExcel\\Reader' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Reader.php',
-        'BasicExcel\\Reader\\Csv' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Reader/Csv.php',
-        'BasicExcel\\Reader\\XLSXWorksheet' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Reader/Xlsx.php',
-        'BasicExcel\\Reader\\Xlsx' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Reader/Xlsx.php',
-        'BasicExcel\\Writer\\Csv' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Writer/Csv.php',
-        'BasicExcel\\Writer\\Xls' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Writer/Xls.php',
-        'BasicExcel\\Writer\\Xlsx' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Writer/Xlsx.php',
-        'BasicExcel\\Xls' => __DIR__ . '/..' . '/phpclasses/basic-excel/BasicExcel/Reader/Xls.php',
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Phpml' => 
+            array (
+                0 => __DIR__ . '/..' . '/php-ai/php-ml/src',
+            ),
+        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -40,7 +35,7 @@ class ComposerStaticInit3c050239e886ed92f691060779abbd91
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit3c050239e886ed92f691060779abbd91::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3c050239e886ed92f691060779abbd91::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit3c050239e886ed92f691060779abbd91::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInit3c050239e886ed92f691060779abbd91::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
