@@ -38,7 +38,7 @@
     <section class="container" id="ml-library">
     <?php $movies = new controllers\Movies; ?>
     <?php $movies->get_titles(); 
-    var_dump($movies->id);?>
+    var_dump($movies->titles);?>
     </section>
 </body>
 <script async src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
