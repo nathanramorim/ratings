@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <?php include_once('vendor/autoload.php'); ?>
-<?php use controllers\Ratings; ?>
-<?php use controllers\Movies; ?>
-<?php use controllers\Users; ?>
-<?php $movies = new Movies('movies.dat','::'); ?>
-<?php $users = new Users('users.dat','::'); ?>
-<?php $ratings = new Ratings('ratings.dat','::'); ?>
+<?php use controllers\Mlearning; ?>
+<?php $ml = new Mlearning(DATA_FILE,'::') ?>
+<?php $movies = $ml->movies ?>
+<?php $ratings = $ml->ratings ?>
+<?php $users = $ml->users ?>
 
 <html lang="pt-br">
 <head>
@@ -22,7 +21,7 @@
     </header>
     <nav class="container">
         <article></article>
-        <article class="text-center alert alert-warning">Found <?php echo $ratings->count_ratings() ?> ratings for movies </article>
+        <article class="text-center alert alert-warning">Found <?php #echo $ratings->count_ratings() ?> ratings for movies </article>
         <article></article>
     </nav>
     <section class="container" style="display:none">
@@ -41,7 +40,7 @@
         </table>
     </section>
     <section class="container" id="ml-library">
-        <?php var_dump($ratings->userid); ?>
+        
     </section>
 </body>
 <script async src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
