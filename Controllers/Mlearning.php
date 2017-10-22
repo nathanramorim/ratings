@@ -16,4 +16,14 @@ class Mlearning {
         $this->ratings = new Ratings($file_name['ratings'],$demilimiter);
     }
     
+    public function mount_matrix (){
+        for ($row = 1; $row <= $row_size; $row++){
+            
+            for ($col = 1; $col <= $col_size; $col++){
+
+            }
+
+        }
+        
+    }
 }
