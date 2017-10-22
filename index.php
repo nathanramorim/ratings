@@ -36,23 +36,9 @@
         </table>
     </section>
     <section class="container" id="ml-library">
-    <?php
-        $samples = $ratings->get_full_data();
-        use Phpml\Association\Apriori;
-        /** 
-        *   @param float $ support 
-        *                  quantidade relativa mínima de item freqüente configurado na amostra de trem
-        *   @param float $ confidence 
-        *                  quantidade relativa mínima de item configurada em conjuntos de itens freqüentes
-        */
-        $associator = new Apriori($support = 0.5, $confidence = 0.5);
-
-        /** To train a associator simply provide train samples and labels (as array) */
-        $associator->train($samples, $labels);
-
-        /** Generating k-length frequent item sets simply use apriori method.  */
-        $associator->apriori();
-    ?>
+    <?php $movies = new controllers\Movies; ?>
+    <?php $movies->get_titles(); 
+    var_dump($movies->id);?>
     </section>
 </body>
 <script async src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
