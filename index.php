@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <?php include_once('vendor/autoload.php'); ?>
 <?php use controllers\Ratings; ?>
-<?php $ratings = new Ratings(); ?>
+<?php use controllers\Movies; ?>
+<?php use controllers\Users; ?>
+<?php $movies = new Movies('movies.dat','::'); ?>
+<?php $users = new Users('users.dat','::'); ?>
+<?php $ratings = new Ratings('ratings.dat','::'); ?>
+
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -36,9 +41,7 @@
         </table>
     </section>
     <section class="container" id="ml-library">
-    <?php $movies = new controllers\Movies; ?>
-    <?php $movies->get_titles(); 
-    var_dump($movies->titles);?>
+        <?php var_dump($ratings->userid); ?>
     </section>
 </body>
 <script async src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>

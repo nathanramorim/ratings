@@ -7,8 +7,20 @@ class Movies extends Data{
     public $title;
     public $genres;
 
-    public function get_ids(){
-        $data = self::get_array_data('movies.dat','::');
+    public $file_name;
+    public $delimiter;
+
+    public function __construct ($file,$delimiter){
+        $this->file_name = $file;
+        $this->delimiter = $delimiter;
+        $this->get_ids();
+        $this->get_titles();
+        $this->get_genres();
+
+    }
+
+    private function get_ids(){
+        $data = self::get_array_data($this->file_name,$this->delimiter);
         
         foreach ($data as $ln) {
             if (isset($ln[0])){
@@ -18,8 +30,8 @@ class Movies extends Data{
         return $this->id;
     }
     
-    public function get_titles(){
-        $data = self::get_array_data('movies.dat','::');
+    private function get_titles(){
+        $data = self::get_array_data($this->file_name,$this->delimiter);
         
         foreach ($data as $ln) {
             if (isset($ln[0]) && isset($ln[1])){
@@ -29,8 +41,8 @@ class Movies extends Data{
         return $this->titles;
     }
 
-    public function get_genres(){
-        $data = self::get_array_data('movies.dat','::');
+    private function get_genres(){
+        $data = self::get_array_data($this->file_name,$this->delimiter);
         
         foreach ($data as $ln) {
             if (isset($ln[0]) && isset($ln[2])){
