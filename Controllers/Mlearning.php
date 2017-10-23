@@ -15,15 +15,22 @@ class Mlearning {
         $this->users = new Users($file_name['users'],$demilimiter);
         $this->ratings = new Ratings($file_name['ratings'],$demilimiter);
     }
-    
-    public function mount_matrix (){
-        for ($row = 1; $row <= $row_size; $row++){
-            
-            for ($col = 1; $col <= $col_size; $col++){
 
-            }
-
+    public function print_cols($columns){
+        echo '<tr>';
+        echo '<th></th>';
+        foreach ($columns as $col){
+            echo '<th style="min-width:250px; font-size:10px;" class="text-center">'.$col.'</th>';
         }
-        
+        echo '</tr>';
     }
+    
+    public function print_rows ($rows){
+        foreach($rows as $ln){
+            echo '<tr><td>'.$ln.'</td><tr>';
+           
+        }
+    }
+
+   
 }

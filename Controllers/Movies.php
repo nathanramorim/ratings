@@ -32,13 +32,13 @@ class Movies extends Data{
     
     private function get_titles(){
         $data = self::get_array_data($this->file_name,$this->delimiter);
-        
+
         foreach ($data as $ln) {
             if (isset($ln[0]) && isset($ln[1])){
-                $this->titles[$ln[0]] = $ln[1];
+                $this->title[$ln[0]] = $ln[1];
             }
         }
-        return $this->titles;
+        return $this->title;
     }
 
     private function get_genres(){

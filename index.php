@@ -21,21 +21,20 @@
     </header>
     <nav class="container">
         <article></article>
-        <article class="text-center alert alert-warning">Found <?php #echo $ratings->count_ratings() ?> ratings for movies </article>
+        <article class="text-center alert alert-warning">Found <?php echo sizeof($movies->id) ?> movies </article>
         <article></article>
     </nav>
-    <section class="container" style="display:none">
+    <section class="container">
         <table class="table table-hover table-bordered text-center">
             <thead>
                 <tr scope="row">
-                    <th class="text-center">id user</th>
-                    <th class="text-center">id movie</th>
-                    <th class="text-center">rating</th>
-                    <th class="text-center">is rating?</th>
+                    <?php $ml->print_cols($movies->title) ;?>
                 </tr>
             </thead>
             <tbody>
-                <?php #$ratings::print_arrays(); ?>
+                    
+                    <?php $ml->print_rows($users->id) ?>
+                
             </tbody>
         </table>
     </section>
