@@ -16,7 +16,7 @@ class Mlearning {
         $this->ratings = new Ratings($file_name['ratings'],$demilimiter);
     }
 
-    public function print_cols($columns){
+    public function print_thead($columns){
         echo '<tr>';
         echo '<th></th>';
         foreach ($columns as $col){
@@ -30,6 +30,24 @@ class Mlearning {
             echo '<tr><td>'.$ln.'</td><tr>';
            
         }
+    }
+
+    public function mt($movies,$users,$ratings){
+        foreach($ratings->userid as $ku => $u){
+            $i=0;
+            $us = (isset($users[$ku])) ? 1 : 0;
+            foreach($ratings->movieid as $km => $k){
+                $j=0;
+                $mo = (isset($movies[$km])) ? 1 : 0;
+                $a[$i][$j]= ($us == 1 && $mo == 1) ? 1:0;
+                $j++;$i++;
+            }
+        }
+        return $a;
+    }
+
+    public function arr_key($key,$arr){
+        return array_key_exists ($key,$arr);
     }
 
    

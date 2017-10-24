@@ -24,11 +24,11 @@
         <article class="text-center alert alert-warning">Found <?php echo sizeof($movies->id) ?> movies </article>
         <article></article>
     </nav>
-    <section class="container">
+    <section class="container" style="display:none">
         <table class="table table-hover table-bordered text-center">
             <thead>
                 <tr scope="row">
-                    <?php $ml->print_cols($movies->title) ;?>
+                    <?php $ml->print_thead($movies->title) ;?>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +39,12 @@
         </table>
     </section>
     <section class="container" id="ml-library">
-        
+        <pre>
+        <?php $t = $ml->mt($movies->id,$users->id,$ratings); ?>
+        <?php var_dump($t) ?>
+        <?php #$key = 'opa'; $arr = ['opa'=>'2','ala'=>'3']; ?>
+        <?php #var_dump($ml->arr_key($key,$arr)); ?>
+        </pre>
     </section>
 </body>
 <script async src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
