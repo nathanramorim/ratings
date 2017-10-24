@@ -19,32 +19,16 @@
     <header class="container-fluid">
         <h1 class="text-center">Experimento utilizando o conceito de Bag of Words</h1>
     </header>
-    <nav class="container">
-        <article></article>
-        <article class="text-center alert alert-warning">Found <?php echo sizeof($movies->id) ?> movies </article>
-        <article></article>
-    </nav>
-    <section class="container" style="display:none">
-        <table class="table table-hover table-bordered text-center">
-            <thead>
-                <tr scope="row">
-                    <?php $ml->print_thead($movies->title) ;?>
-                </tr>
-            </thead>
-            <tbody>
-                    
-                    <?php $ml->print_rows($users->id) ?>
-                
-            </tbody>
-        </table>
-    </section>
     <section class="container" id="ml-library">
-        <pre>
-        <?php $t = $ml->mt($movies->id,$users->id,$ratings); ?>
-        <?php var_dump($t) ?>
-        <?php #$key = 'opa'; $arr = ['opa'=>'2','ala'=>'3']; ?>
-        <?php #var_dump($ml->arr_key($key,$arr)); ?>
-        </pre>
+        <?php /** se existe @param array $list, destrua */ ?>
+        <?php if(isset($list)){unset($list);} ?>
+
+        <?php /** Retorna a lista atribuida 1 para os filmes que foram avaliados pelos  n usuários  */ ?>
+        <?php $list = $ml->mt($movies->id,$users->id,$ratings); ?>
+
+        <?php /**retorna comparação e multiplicação das linhas já avaliadas */ ?>
+        <?php $result = print_ma($ml->get_list_calc($list)); ?>
+        <?php var_dump($result) ?>
     </section>
 </body>
 <script async src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
