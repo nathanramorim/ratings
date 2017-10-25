@@ -25,10 +25,15 @@
 
         <?php /** Retorna a lista atribuida 1 para os filmes que foram avaliados pelos  n usuários  */ ?>
         <?php $list = $ml->mt($movies->id,$users->id,$ratings); ?>
-
-        <?php /**retorna comparação e multiplicação das linhas já avaliadas */ ?>
-        <?php $result = print_ma($ml->get_list_calc($list)); ?>
-        <?php var_dump($result) ?>
+        <?php 
+            /**
+             * $ml é objeto de Mlearning la na linha 4 o objeto foi criado $ml = new Mleaning(DATA_FILE,'::') 
+             * passado por parâmetro a base de dados que está configurada em Assets/Config.php e o separador de colunas
+             * */
+        ?> 	
+		
+        <?php /**retorna a similaridade do cosseno entre os filmes avaliados */ ?>
+        <?php var_dump($ml->similary_coss($list)); ?>
     </section>
 </body>
 <script async src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
