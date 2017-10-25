@@ -28,21 +28,21 @@ class Mlearning {
         }
         return $a;
     }
-    
+
     /** cálculo de similaridade do cosseno */
     function similary_coss($list){
-        
-        for ($i=1; $i <= 10 ; $i++) { 
+        $sizeof = sizeof($list);
+        for ($i=1; $i <= $sizeof ; $i++) { 
             $arr['numerator'][$i] = $this->sum_numerator($list[$i],$list[$i+1]);
         }
 		$size = sizeof($list);
-        for ($i=1; $i <= 10 ; $i++) { 
+        for ($i=1; $i <= $sizeof ; $i++) { 
             $sum[$i] = $this->mult_denominator($list[$i],$list[$i+1]);
         }
-		for($i = 1; $i <= 10; $i++){
+		for($i = 1; $i <= $sizeof; $i++){
 			$arr['denominator'][$i] = sqrt($sum[$i]['first'])*sqrt($sum[$i]['second']);
 		}
-		for($i = 1; $i <= 10; $i++){
+		for($i = 1; $i <= $sizeof; $i++){
             $calc = ($arr['numerator'][$i]/$arr['denominator'][$i])*100;
             $result[$i] = number_format($calc,2).'%';
         }
