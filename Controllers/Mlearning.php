@@ -19,9 +19,13 @@ class Mlearning {
     
     /** Retorna a lista atribuida 1 para os filmes que foram avaliados pelos  n usuários */
     public function mt($movies,$users,$ratings){
+        $msize = count($movies);
+        $usize = count($users);
+        $rusize = count($ratings->userid);
+        $rmsize = count($ratings->movieid);
         foreach($ratings->userid as $ku => $u){
-            $us = (isset($users[$ku])) ? 1 : 0;
             foreach($ratings->movieid as $km => $k){
+                $us = (isset($users[$ku])) ? 1 : 0;
                 $mo = (isset($movies[$km])) ? 1 : 0;
                 $a[$ku][$km] = ($us == 1 && $mo == 1) ? 1:0;
             }
@@ -31,11 +35,12 @@ class Mlearning {
 
     /** cálculo de similaridade do cosseno */
     function similary_coss($list){
-        $sizeof = sizeof($list);
+        $sizeof = count($list[1])-1;
+       
         for ($i=1; $i <= $sizeof ; $i++) { 
             $arr['numerator'][$i] = $this->sum_numerator($list[$i],$list[$i+1]);
         }
-		$size = sizeof($list);
+       
         for ($i=1; $i <= $sizeof ; $i++) { 
             $sum[$i] = $this->mult_denominator($list[$i],$list[$i+1]);
         }
@@ -44,7 +49,7 @@ class Mlearning {
 		}
 		for($i = 1; $i <= $sizeof; $i++){
             $calc = ($arr['numerator'][$i]/$arr['denominator'][$i])*100;
-            $result[$i] = number_format($calc,2).'%';
+            $result[$i] = number_format($calc,5).'%';
         }
         return $result;
 
@@ -54,6 +59,8 @@ class Mlearning {
     public function get_list_numerator($list){ 
         $size = sizeof($list);
         for ($i=1; $i <= 10 ; $i++) { 
+            $l1 = (isset($list[$i])) ? $list[$i] : 0;
+            $l2 = (isset($list[$i+1])) ? $list[$i+1] : 0;
             $arr[$i] = $this->sum_numerator($list[$i],$list[$i+1]);
             $conf[$i] = $list[$i];
         }
@@ -62,9 +69,12 @@ class Mlearning {
 
     /**soma B1+B2 */
     public function sum_numerator($list,$list2){
+        
         $result = 0;
         foreach($list as $v1){
+            
             foreach($list2 as $v2){
+               
                 $result += $v1+$v2;
             }
         }
@@ -86,13 +96,15 @@ class Mlearning {
     /** (somatório e exponencial B1² e B2²) */
 	public function mult_denominator($list,$list2){
 		$result['first'] =0;
-		$result['second'] =0; 
+        $result['second'] =0; 
+       
         foreach($list as $v1){
             foreach($list2 as $v2){
                 $result['first'] += $v1^2;
 				$result['second'] += $v2^2;
             }
         }
+        
         return $result;
     }
     
