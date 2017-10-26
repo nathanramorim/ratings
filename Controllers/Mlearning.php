@@ -36,12 +36,18 @@ class Mlearning {
     /** Retorna a matriz atribuida 1 para os filmes que foram avaliados pelos  n usuários */
     public function mt($ratings){
         $userid = $ratings->userid;
-        $movieid = $ratings->movieid;
+        $movieid = array_unique($ratings->movieid);
         $rating = $ratings->rating;
-        
+       
         foreach($userid as $ku => $u){
                 foreach($movieid as $mu => $m){
-                    $arr[$u][$m] = (isset($rating[$u][$m])) ? 1 : 0;
+                //    if($m == 1982){
+                        
+                    $arr[$u][$m] = (!empty($rating[$u.$m])) ? 1 : 0;
+                //     echo $u.':'.$m;
+                // var_dump($arr[$u][$m]).die();
+                //    }
+                    
                 }
         }
         return $arr;
@@ -49,48 +55,82 @@ class Mlearning {
 
     /** cálculo de similaridade do cosseno */
     function similary_coss($list){
-        $sizeof = count($list[1])-1;
+        $sizeof = count($this->movies->id);
        
-        for ($i=1; $i <= $sizeof ; $i++) { 
-            $arr['numerator'][$i] = $this->sum_numerator($list[$i],$list[$i+1]);
+       
+        for ($i = 1; $i <= $sizeof ; $i++) { 
+            if($i < $sizeof){$n = $i+1;}
+            $arr['numerator'][$i] = $this->sum_numerator($list[$i],$list[$n]);
         }
        
-        for ($i=1; $i <= $sizeof ; $i++) { 
-            $sum[$i] = $this->mult_denominator($list[$i],$list[$i+1]);
+        for ($i = 1; $i <= $sizeof ; $i++) { 
+            if($i < $sizeof){$n = $i+1;}
+            $sum[$i] = $this->mult_denominator($list[$i],$list[$n]);
+        }
+
+        for ($i = 1; $i <= $sizeof ; $i++) { 
+            if($i < $sizeof){$n = $i+1;}
+            
         }
 		for($i = 1; $i <= $sizeof; $i++){
-			$arr['denominator'][$i] = sqrt($sum[$i]['first'])*sqrt($sum[$i]['second']);
+            $arr['denominator'][$i] = sqrt($sum[$i]['first'])*sqrt($sum[$i]['second']);
 		}
 		for($i = 1; $i <= $sizeof; $i++){
-            $calc = ($arr['numerator'][$i]/$arr['denominator'][$i])*100;
-            $result[$i] = number_format($calc,5).'%';
+            if($arr['denominator'][$i] != 0 ){
+                $calc = ($arr['numerator'][$i]/$arr['denominator'][$i])*100;
+                $result[$i] = number_format($calc,5);
+            }
         }
         return $result;
 
     }
 
+     /** cálculo de similaridade do cosseno */
+     function similary_cosss($list){
+        $sizeof = count($this->movies->id);
+       
+       
+        for ($i = 1; $i <= $sizeof ; $i++) { 
+            if($i < $sizeof){$n = $i+1;}
+            $arr['numerator'][$i] = $this->sum_numerator($list[$n],$list[$i]);
+        }
+       
+        for ($i = 1; $i <= $sizeof ; $i++) { 
+            if($i < $sizeof){$n = $i+1;}
+            $sum[$i] = $this->mult_denominator($list[$n],$list[$i]);
+        }
+
+		for($i = 1; $i <= $sizeof; $i++){
+            $arr['denominator'][$i] = sqrt($sum[$i]['first'])*sqrt($sum[$i]['second']);
+		}
+		for($i = 1; $i <= $sizeof; $i++){
+            if($arr['denominator'][$i] != 0 ){
+                $calc = ($arr['numerator'][$i]/$arr['denominator'][$i])*100;
+                $result[$i] = number_format($calc,5).'%';
+            }
+        }
+        return $result;
+
+    }
+
+
     /**monta a lista dos numeradores (soma de B1 e B2) */
     public function get_list_numerator($list){ 
         $size = sizeof($list);
         for ($i=1; $i <= 10 ; $i++) { 
-            $l1 = (isset($list[$i])) ? $list[$i] : 0;
-            $l2 = (isset($list[$i+1])) ? $list[$i+1] : 0;
             $arr[$i] = $this->sum_numerator($list[$i],$list[$i+1]);
-            $conf[$i] = $list[$i];
         }
         return $arr;
     }
 
-    /**soma B1+B2 */
-    public function sum_numerator($list,$list2){
+    /**soma B1*B2 */
+    public function sum_numerator($line,$lineN){
+        if(isset($line)){$line = array_values($line);}
+        if(isset($lineN)){$lineN = array_values($lineN);}
         
         $result = 0;
-        foreach($list as $v1){
-            
-            foreach($list2 as $v2){
-               
-                $result += $v1+$v2;
-            }
+        for($i = 0; $i < count($line); $i++){
+            $result += ($line[$i]*$lineN[$i]);
         }
         return $result;
     }

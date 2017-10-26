@@ -51,7 +51,8 @@ class Ratings extends Data{
         $i = 1;
         foreach ($data as $ln) {
             if (isset($ln[0]) && isset($ln[2])){
-                $this->rating[$ln[0]][$ln[1]] = $ln[2];
+                $y = $ln[0].$ln[1];
+                $this->rating[$y] = $ln[2];
             }
             $i++;
         }
