@@ -12,6 +12,7 @@ class Data{
             $data[$i] = explode($delimiter,fgets($data_file));
             $i++;
         }
+        fclose($data_file);
         return $data;
     }
 }

@@ -20,11 +20,13 @@
         <h1 class="text-center">Experimento utilizando o conceito de Bag of Words</h1>
     </header>
     <section class="container" id="ml-library">
+        <pre>
         <?php /** se existe @param array $list, destrua */ ?>
         <?php if(isset($list)){unset($list);} ?>
 
         <?php /** Retorna a lista atribuida 1 para os filmes que foram avaliados pelos  n usuários  */ ?>
-        <?php $list = $ml->mt($movies->id,$users->id,$ratings); ?>
+        <?php $list = $ml->mt($ratings); ?>
+        <?php var_dump($list); ?>
         <?php 
             /**
              * $ml é objeto de Mlearning la na linha 4 o objeto foi criado $ml = new Mleaning(DATA_FILE,'::') 
@@ -33,7 +35,8 @@
         ?> 	
 		
         <?php /**retorna a similaridade do cosseno entre os filmes avaliados */ ?>
-        <?php var_dump($ml->similary_coss($list)); ?>
+        <?php #var_dump($ml->similary_coss($list)); ?>
+        </pre>
     </section>
 </body>
 <script async src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>

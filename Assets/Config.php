@@ -15,5 +15,5 @@ $data_file = array (
     'ratings' => 'ratings.dat' 
 );
 
-define('DATA_FILE',$data_file);
+define('DATA_FILE',$less_data_file);
 

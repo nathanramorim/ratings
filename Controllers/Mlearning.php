@@ -18,7 +18,7 @@ class Mlearning {
     }
     
     /** Retorna a lista atribuida 1 para os filmes que foram avaliados pelos  n usuários */
-    public function mt($movies,$users,$ratings){
+    public function mt1($movies,$users,$ratings){
         $msize = count($movies);
         $usize = count($users);
         $rusize = count($ratings->userid);
@@ -31,6 +31,30 @@ class Mlearning {
             }
         }
         return $a;
+    }
+
+    /** Retorna a lista atribuida 1 para os filmes que foram avaliados pelos  n usuários */
+    public function mt($ratings){
+        $userid = $ratings->userid;
+        $movieid = $ratings->movieid;
+        $rating = $ratings->rating;
+        $size = count($userid);
+        #var_dump($userid).die();
+        $k = 0;
+        foreach($movieid as $mu => $m){
+            
+           
+            if($k != $u or $u !=" " or $u != ''){
+                $k = $u;
+                foreach($userid as $ku => $u){
+                
+                    $arr[$ku][$mu] = (isset($movieid[$mu]) && isset($userid[$ku])) ? 1 : 0;
+                    #var_dump($u);
+                }
+            }
+            
+        }
+        return $arr;
     }
 
     /** cálculo de similaridade do cosseno */
